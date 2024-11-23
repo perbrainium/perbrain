@@ -1,0 +1,25 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+
+@use 'vuetify' with (
+    $color-pack: false
+);
+
+body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.link-mute {
+    text-decoration: unset;
+    color: unset;
+}
