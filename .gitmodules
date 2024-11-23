@@ -1,0 +1,6 @@
+[submodule "modules/quill"]
+	path = modules/quill
+	url = git@github.com:perbrainium/quill.git
+[submodule "modules/delta"]
+	path = modules/delta
+	url = git@github.com:perbrainium/delta.git
