@@ -44,14 +44,6 @@ const removeFormat = () => {
   }
 }
 
-// const getFormat = computed(()=>{
-//   if(quill){
-//     return quill.getFormat()
-//   }
-//   return undefined
-// })
-
-
 </script>
 
 <template>
@@ -88,9 +80,8 @@ const removeFormat = () => {
       <v-toolbar density="compact">
         <!-- <v-toolbar-title>Title</v-toolbar-title> -->
 
-        <v-btn icon>
-          <v-icon>mdi-format-letter-case</v-icon>
-
+        <v-btn icon="mdi-format-letter-case">
+          
           <v-menu activator="parent">
             <v-list density="compact">
               <v-btn-group density="compact">
