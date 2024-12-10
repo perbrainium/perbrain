@@ -1,6 +1,13 @@
 import App from "./App";
-// import "./assets/css/styles.css";
+import { initStore } from "./stores";
+import "./assets/css/main.css";
 
-const app = new App();
+async function init() {
+    await initStore();
 
-document.body.appendChild(app.ctn)
+    const app = new App();
+
+    document.body.appendChild(app.ctn)
+}
+
+init()

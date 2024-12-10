@@ -4,6 +4,6 @@ export default class Navbar extends Base {
     constructor() {
         super();
 
-        this.ctn.className = "navbar";
+        this.className = "navbar";
     }
 }

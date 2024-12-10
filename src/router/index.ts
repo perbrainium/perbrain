@@ -1,50 +1,45 @@
-
 /*
   <a href="#/">Home</a> |
   <a href="#/about">About</a> |
   <a href="#/non-existent-path">Broken Link</a>
 */
 
-import Base from "../components/Base"
+import Base from "../components/Base";
+import { currentUrl, getView, onPathChange, unPathChange, pushPath, toPath } from "./utils";
 
-export function currentHash() {
-  return window.location.hash
-}
-
-export function currentPath(): string {
-  return currentHash().slice(1) || '/'
-}
-
-async function getView(name: string) {
-  return import(`../views/${name}/index.ts`).then( modules => modules.default )
-}
+export const routes: { [key: string]: string } = {
+  "/": "Index",
+  "/about": "About",
+  "/404": "NotFound",
+};
 
 export default class Router extends Base {
-  constructor(){
+  constructor() {
     super();
-    this.ctn.className = "view";
-    
-    window.addEventListener('hashchange', () => {
-      this.toView();
-    })
-    this.toView()
+    this.className = "view";
+
+    this.toView();
+
+    onPathChange(() => this.toView());
   }
 
-  toView(){
-    switch(currentPath()){
-      case "/":
-        this.render("home")
-        break;
-      case "/about":
-        this.render("about")
-        break;
-    }
+  toView() {
+    let nameRoute = routes[currentUrl().pathname];
+    if (!nameRoute) nameRoute = "NotFound";
+    this.render(nameRoute);
   }
 
-  async render(name: string){
-    this.ctn.innerHTML = "";
+  async render(name: string) {
+    this.innerHTML = "";
     const View = await getView(name);
-    this.ctn.appendChild(new View().ctn)
+    this.appendChild(new View());
   }
 }
 
+export {
+  onPathChange,
+  unPathChange,
+  currentUrl,
+  pushPath,
+  toPath,
+}

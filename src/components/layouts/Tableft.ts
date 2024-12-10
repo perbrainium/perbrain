@@ -1,25 +1,29 @@
+import { toPath } from "@/router";
 import Base from "../Base";
+import Elm from "../Elm";
 
 export default class Tableft extends Base {
     constructor() {
         super();
 
-        this.ctn.className = "tableft";
+        this.className = "tableft";
 
         const links = [{
-            path: "#/",
+            path: toPath("/"),
             name: "Home"
         },{
-            path: "#/about",
+            path: toPath("/about"),
             name: "About"
         }]
 
         for(const link of links) {
-            const a = document.createElement("a");
-            a.href = link.path;
-            a.innerText = link.name;
+            const a = new Elm("a");
+            a.setAttributes({
+                href: link.path,
+                text: link.name
+            })
 
-            this.ctn.append(a, " - ");
+            this.append(a, " - ");
         }
     }
 }

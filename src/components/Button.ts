@@ -8,9 +8,9 @@ export default class Button extends Base {
     }) {
         super();
         
-        this.ctn.innerText = options.label;
+        this.innerText = options.label;
 
-        this.ctn.addEventListener("click", (event) => {
+        this.onEvent("click", (event) => {
             this.emits("click", event)
         })
     }
