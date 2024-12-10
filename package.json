@@ -1,5 +1,6 @@
 {
   "name": "perbrain",
+  "description": "Your all-in-one productivity app, designed as your second brain",
   "private": true,
   "version": "0.0.0",
   "type": "module",
